@@ -1,0 +1,472 @@
+/* ==========================================================================
+   CINE STARK - MÓDULO DE DULCERÍA (POS)
+   Archivo: public/css/dulceria.css
+   ========================================================================== */
+
+/* Layout Principal del POS Dulcería */
+.dulceria-container {
+    display: grid;
+    grid-template-columns: 1fr 390px;
+    gap: 1.5rem;
+    min-height: calc(100vh - 150px);
+}
+
+@media (max-width: 992px) {
+    .dulceria-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Buscador y Filtros */
+.search-input-box {
+    background-color: var(--cs-gris-carbon);
+    border: 1px solid var(--cs-gris-borde);
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    color: #fff;
+    width: 100%;
+    transition: all 0.2s;
+}
+
+.search-input-box:focus {
+    outline: none;
+    border-color: var(--cs-dorado);
+    box-shadow: 0 0 10px var(--cs-dorado-glow);
+    background-color: #2a2a30;
+}
+
+.cat-pill {
+    background-color: var(--cs-gris-carbon);
+    border: 1px solid var(--cs-gris-borde);
+    color: var(--cs-blanco-suave);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    user-select: none;
+}
+
+.cat-pill:hover {
+    border-color: var(--cs-dorado);
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+.cat-pill.active {
+    background-color: var(--cs-rojo);
+    border-color: var(--cs-rojo);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(217, 30, 24, 0.4);
+}
+
+/* Grid de Productos */
+.productos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 1rem;
+}
+
+.producto-card {
+    background-color: var(--cs-gris-carbon);
+    border: 1px solid var(--cs-gris-borde);
+    border-radius: 12px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.18s, border-color 0.18s, box-shadow 0.18s;
+    user-select: none;
+    overflow: hidden;
+}
+
+.producto-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--cs-dorado);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+}
+
+.producto-card:active {
+    transform: scale(0.98);
+}
+
+.producto-card.en-carrito {
+    border-color: var(--cs-rojo);
+    background-color: #2b2426;
+}
+
+.badge-cantidad {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--cs-rojo);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+
+.producto-imagen-box {
+    width: 100%;
+    height: 130px;
+    background-color: #19191d;
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.producto-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.25s ease;
+}
+
+.producto-card:hover .producto-img {
+    transform: scale(1.05);
+}
+
+.producto-img-placeholder {
+    color: var(--cs-blanco-suave);
+    opacity: 0.35;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.producto-img-placeholder i {
+    font-size: 2.2rem;
+}
+
+.producto-categoria-tag {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--cs-blanco-suave);
+    margin-bottom: 4px;
+}
+
+.producto-titulo {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.25;
+    margin-bottom: 0.35rem;
+}
+
+.producto-desc {
+    font-size: 0.75rem;
+    color: var(--cs-blanco-suave);
+    line-height: 1.3;
+    margin-bottom: 0.8rem;
+    flex-grow: 1;
+}
+
+.producto-precio-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.producto-precio {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.45rem;
+    letter-spacing: 0.5px;
+    color: var(--cs-dorado);
+    line-height: 1;
+}
+
+.btn-agregar-rapido {
+    background-color: rgba(245, 185, 33, 0.15);
+    border: 1px solid var(--cs-dorado);
+    color: var(--cs-dorado);
+    border-radius: 6px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    transition: all 0.15s;
+}
+
+.btn-agregar-rapido:hover {
+    background-color: var(--cs-dorado);
+    color: #000;
+}
+
+/* Panel Lateral de Orden / Carrito */
+.orden-panel {
+    background-color: #1c1c20;
+    border: 1px solid var(--cs-gris-borde);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    max-height: calc(100vh - 150px);
+    position: sticky;
+    top: 20px;
+}
+
+.orden-header {
+    padding: 1rem 1.2rem;
+    border-bottom: 1px solid var(--cs-gris-borde);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.orden-lista {
+    padding: 0.8rem;
+    overflow-y: auto;
+    flex-grow: 1;
+    max-height: 360px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.orden-item {
+    background-color: var(--cs-gris-carbon);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 8px;
+    padding: 0.65rem 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.orden-item-info {
+    flex-grow: 1;
+    min-width: 0;
+}
+
+.orden-item-nombre {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.orden-item-precio-unit {
+    font-size: 0.75rem;
+    color: var(--cs-blanco-suave);
+}
+
+.orden-item-controles {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-qty {
+    background-color: #1a1a1e;
+    border: 1px solid var(--cs-gris-borde);
+    color: #fff;
+    width: 26px;
+    height: 26px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.btn-qty:hover {
+    background-color: var(--cs-rojo);
+    border-color: var(--cs-rojo);
+}
+
+.orden-item-cantidad {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #fff;
+    min-width: 20px;
+    text-align: center;
+}
+
+.orden-item-subtotal {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.15rem;
+    color: var(--cs-dorado);
+    min-width: 52px;
+    text-align: right;
+}
+
+.orden-footer {
+    padding: 1.2rem;
+    border-top: 1px solid var(--cs-gris-borde);
+    background-color: #161619;
+    border-radius: 0 0 12px 12px;
+}
+
+.btn-cobrar-pos {
+    background-color: var(--cs-rojo);
+    border: none;
+    color: #fff;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+    padding: 0.75rem;
+    border-radius: 8px;
+    width: 100%;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(217, 30, 24, 0.4);
+}
+
+.btn-cobrar-pos:hover:not(:disabled) {
+    background-color: var(--cs-rojo-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(217, 30, 24, 0.6);
+}
+
+.btn-cobrar-pos:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* Modal de Personalización (Sabores y Extras) */
+.opt-sabor-card, .opt-extra-card {
+    background-color: var(--cs-gris-carbon);
+    border: 1px solid var(--cs-gris-borde);
+    border-radius: 8px;
+    padding: 0.65rem 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all 0.15s;
+    user-select: none;
+}
+
+.opt-sabor-card:hover, .opt-extra-card:hover {
+    border-color: var(--cs-dorado);
+    background-color: #2b2b32;
+}
+
+.opt-sabor-card.active, .opt-extra-card.active {
+    border-color: var(--cs-dorado);
+    background-color: rgba(245, 185, 33, 0.12);
+}
+
+.badge-personalizable {
+    background-color: rgba(245, 185, 33, 0.12);
+    border: 1px solid rgba(245, 185, 33, 0.35);
+    color: var(--cs-dorado);
+    font-size: 0.68rem;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 4px;
+}
+
+.orden-item-qty-input {
+    background-color: #121214;
+    border: 1px solid var(--cs-gris-borde);
+    color: #fff;
+    width: 38px;
+    height: 26px;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 0;
+    transition: border-color 0.15s;
+    -moz-appearance: textfield;
+}
+
+.orden-item-qty-input::-webkit-outer-spin-button,
+.orden-item-qty-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.orden-item-qty-input:focus {
+    outline: none;
+    border-color: var(--cs-dorado);
+    background-color: #1f1f24;
+}
+
+/* Modal de Cobro */
+.metodo-pago-card {
+    background-color: var(--cs-gris-carbon);
+    border: 2px solid var(--cs-gris-borde);
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    user-select: none;
+}
+
+.metodo-pago-card:hover {
+    border-color: var(--cs-dorado);
+}
+
+.metodo-pago-card.active {
+    border-color: var(--cs-dorado);
+    background-color: rgba(245, 185, 33, 0.1);
+}
+
+.btn-billete {
+    background-color: var(--cs-gris-carbon);
+    border: 1px solid var(--cs-gris-borde);
+    color: #fff;
+    padding: 0.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.15s;
+}
+
+.btn-billete:hover {
+    background-color: var(--cs-dorado);
+    border-color: var(--cs-dorado);
+    color: #000;
+}
+
+/* Ticket Térmico Simulado */
+.ticket-modal-paper {
+    background-color: #fff;
+    color: #111;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 1.5rem;
+    border-radius: 4px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    max-width: 330px;
+    margin: 0 auto;
+}
+

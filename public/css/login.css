@@ -1,0 +1,285 @@
+:root {
+    --cs-negro: #151517;
+    --cs-gris-carbon: #26262B;
+    --cs-gris-borde: #3a3a42;
+    --cs-dorado: #F5B921;
+    --cs-dorado-glow: rgba(245, 185, 33, 0.35);
+    --cs-rojo: #D91E18;
+    --cs-rojo-hover: #A81410;
+    --cs-blanco: #FFFFFF;
+    --cs-blanco-suave: #CCCCCC;
+    --cs-error: #FF5A5F;
+    --cs-input-bg: #1e1e22;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body.login-page {
+    background-color: var(--cs-negro);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+    position: relative;
+}
+
+body.login-page::before {
+    content: '';
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background:
+        radial-gradient(ellipse at 20% 50%, rgba(217, 30, 24, 0.06) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(245, 185, 33, 0.04) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 80%, rgba(217, 30, 24, 0.03) 0%, transparent 50%);
+    animation: bgShift 20s ease-in-out infinite alternate;
+    z-index: 0;
+    pointer-events: none;
+}
+
+@keyframes bgShift {
+    0%   { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(30px, -20px) scale(1.05); }
+}
+
+.login-wrapper {
+    width: 100%;
+    max-width: 420px;
+    padding: 1rem;
+    position: relative;
+    z-index: 1;
+    animation: cardEnter 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    opacity: 0;
+    transform: translateY(24px);
+}
+
+@keyframes cardEnter {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.login-card {
+    background-color: var(--cs-gris-carbon);
+    border: 1px solid var(--cs-gris-borde);
+    border-radius: 16px;
+    padding: 2.8rem 2.2rem 2.2rem;
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.55),
+        0 0 60px rgba(217, 30, 24, 0.04);
+    transition: box-shadow 0.3s ease;
+}
+
+.login-card:hover {
+    box-shadow:
+        0 12px 48px rgba(0, 0, 0, 0.65),
+        0 0 80px rgba(245, 185, 33, 0.06);
+}
+
+.login-brand {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.brand-logo-img {
+    max-width: 240px;
+    width: 100%;
+    height: auto;
+    display: inline-block;
+    filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.45));
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.brand-logo-img:hover {
+    transform: scale(1.02);
+    filter: drop-shadow(0 6px 18px rgba(245, 185, 33, 0.2));
+}
+
+.form-label-stark {
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--cs-blanco-suave);
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.5px;
+    text-align: left;
+    transition: color 0.25s ease;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.stark-input {
+    background-color: var(--cs-input-bg);
+    border: 1px solid var(--cs-gris-borde);
+    color: var(--cs-blanco);
+    border-radius: 10px;
+    height: 48px;
+    padding: 0.6rem 2.8rem 0.6rem 2.7rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    width: 100%;
+}
+
+.stark-input::placeholder {
+    color: #666670;
+    font-size: 0.85rem;
+}
+
+.stark-input:focus {
+    background-color: var(--cs-input-bg);
+    border-color: var(--cs-dorado);
+    box-shadow: 0 0 0 3px var(--cs-dorado-glow);
+    color: var(--cs-blanco);
+    outline: none;
+}
+
+.input-wrapper:focus-within ~ .form-label-stark,
+.form-group:focus-within .form-label-stark {
+    color: var(--cs-dorado);
+}
+
+.input-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--cs-blanco-suave);
+    font-size: 1rem;
+    z-index: 5;
+    pointer-events: none;
+    transition: color 0.25s ease;
+}
+
+.input-wrapper:focus-within .input-icon {
+    color: var(--cs-dorado);
+}
+
+.btn-stark {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: var(--cs-rojo);
+    border: none;
+    border-radius: 10px;
+    color: var(--cs-blanco);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.25s ease, transform 0.15s ease, box-shadow 0.25s ease;
+    margin-top: 0.6rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-stark::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.5s ease, height 0.5s ease;
+}
+
+.btn-stark:active::after {
+    width: 400px;
+    height: 400px;
+}
+
+.btn-stark:hover {
+    background-color: var(--cs-rojo-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(217, 30, 24, 0.35);
+}
+
+.btn-stark:active {
+    transform: translateY(0);
+}
+
+.alert-stark {
+    background-color: rgba(255, 90, 95, 0.12);
+    border: 1px solid var(--cs-error);
+    color: var(--cs-error);
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1.2rem;
+    animation: alertSlide 0.35s ease forwards;
+}
+
+@keyframes alertSlide {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.toggle-password {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--cs-blanco-suave);
+    cursor: pointer;
+    z-index: 5;
+    font-size: 1rem;
+    padding: 4px;
+    transition: color 0.25s ease;
+}
+
+.toggle-password:hover {
+    color: var(--cs-dorado);
+}
+
+.text-dorado {
+    color: var(--cs-dorado) !important;
+}
+
+.toast-stark-success {
+    background-color: var(--cs-gris-carbon);
+    border: 1px solid var(--cs-dorado) !important;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 15px var(--cs-dorado-glow);
+    padding: 0.5rem 0.6rem;
+    font-family: 'Poppins', sans-serif;
+    animation: toastSlide 0.4s cubic-bezier(0.2, 0.9, 0.3, 1) forwards;
+}
+
+@keyframes toastSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.toast-subtitle {
+    color: #e2e2e8;
+    font-size: 0.8rem;
+    display: block;
+    margin-top: 2px;
+}

@@ -1,0 +1,179 @@
+/* ==========================================================================
+   CINE STARK - MÓDULO DE REPORTES CONTABLES Y AUDITORÍA (ADMIN)
+   Archivo: public/css/admin-reportes.css
+   ========================================================================== */
+
+/* Pestañas de selección de reporte */
+.reporte-tab-btn {
+    background-color: var(--cs-gris-carbon);
+    border: 1px solid var(--cs-gris-borde);
+    color: var(--cs-blanco-suave);
+    padding: 0.65rem 1.1rem;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+}
+
+.reporte-tab-btn:hover {
+    border-color: var(--cs-dorado);
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+.reporte-tab-btn.active {
+    background-color: var(--cs-dorado);
+    border-color: var(--cs-dorado);
+    color: #000;
+    box-shadow: 0 4px 15px rgba(245, 185, 33, 0.35);
+}
+
+/* Hoja o contenedor del reporte */
+.reporte-papel {
+    background-color: #1c1c20;
+    border: 1px solid var(--cs-gris-borde);
+    border-radius: 14px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Tarjetas KPI del reporte */
+.kpi-report-box {
+    background-color: #24242a;
+    border: 1px solid var(--cs-gris-borde);
+    border-radius: 10px;
+    padding: 1.1rem;
+    text-align: center;
+}
+
+.kpi-report-title {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #aaa;
+    margin-bottom: 4px;
+    display: block;
+}
+
+.kpi-report-value {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.9rem;
+    letter-spacing: 0.5px;
+    color: #fff;
+    line-height: 1;
+}
+
+/* ==========================================================================
+   ESTILOS FORMALES PARA IMPRESIÓN (@media print)
+   ========================================================================== */
+@media print {
+    @page {
+        size: A4 portrait;
+        margin: 1.2cm;
+    }
+
+    body {
+        background-color: #ffffff !important;
+        color: #111111 !important;
+        font-family: Arial, Helvetica, sans-serif !important;
+        font-size: 9.5pt !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .pos-header, .pos-toolbar, .d-print-none, .btn, .cat-filter-btn {
+        display: none !important;
+    }
+
+    .pos-content {
+        padding: 0 !important;
+        max-width: 100% !important;
+    }
+
+    .reporte-papel {
+        background-color: #ffffff !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        color: #111111 !important;
+    }
+
+    .print-header-corporate {
+        display: flex !important;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 2px solid #111;
+        padding-bottom: 12px;
+        margin-bottom: 15px;
+    }
+
+    .print-logo-img {
+        filter: none !important;
+        max-height: 56px;
+        width: auto;
+        object-fit: contain;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .reporte-papel .border-bottom {
+        border-color: #333333 !important;
+    }
+
+    .kpi-report-box {
+        background-color: #f8f9fa !important;
+        border: 1px solid #ccc !important;
+        padding: 8px !important;
+    }
+
+    .kpi-report-title {
+        color: #555 !important;
+        font-size: 8pt !important;
+    }
+
+    .kpi-report-value {
+        color: #111 !important;
+        font-size: 14pt !important;
+    }
+
+    .table {
+        color: #111 !important;
+        border-color: #ccc !important;
+        font-size: 8.5pt !important;
+    }
+
+    .table-dark {
+        background-color: transparent !important;
+        color: #111 !important;
+    }
+
+    .table-dark th {
+        background-color: #f1f3f5 !important;
+        color: #111 !important;
+        border-bottom: 1.5px solid #333 !important;
+        font-weight: bold !important;
+    }
+
+    .table-dark td {
+        color: #222 !important;
+        border-bottom: 1px solid #ddd !important;
+        background-color: transparent !important;
+    }
+
+    .badge {
+        border: 1px solid #888 !important;
+        color: #111 !important;
+        background-color: transparent !important;
+        font-size: 7.5pt !important;
+    }
+
+    .print-firma-box {
+        display: block !important;
+        page-break-inside: avoid;
+    }
+}
+

@@ -1,0 +1,1075 @@
+:root {
+    --cs-negro: #151517;
+    --cs-gris-carbon: #26262B;
+    --cs-gris-borde: #3a3a42;
+    --cs-gris-afiche: #1c1c20;
+    --cs-dorado: #F5B921;
+    --cs-dorado-glow: rgba(245, 185, 33, 0.35);
+    --cs-rojo: #D91E18;
+    --cs-rojo-hover: #A81410;
+    --cs-blanco: #FFFFFF;
+    --cs-blanco-suave: #A0A0A8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body.pos-body {
+    background-color: var(--cs-negro);
+    color: var(--cs-blanco);
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Principal */
+.pos-header {
+    background-color: #121214;
+    padding: 0.8rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid var(--cs-rojo);
+}
+
+.pos-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.pos-logo-img {
+    height: 38px;
+    width: auto;
+    object-fit: contain;
+}
+
+.pos-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    color: var(--cs-blanco);
+    margin: 0;
+    line-height: 1;
+}
+
+.pos-user-info {
+    font-size: 0.88rem;
+    color: var(--cs-blanco-suave);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.pos-user-name {
+    color: var(--cs-blanco);
+    font-weight: 500;
+}
+
+.pos-status-badge {
+    color: #4ade80;
+    font-size: 0.82rem;
+}
+
+.btn-logout-link {
+    color: var(--cs-blanco-suave);
+    text-decoration: none;
+    font-size: 0.82rem;
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--cs-gris-borde);
+    transition: all 0.2s ease;
+}
+
+.btn-logout-link:hover {
+    color: var(--cs-blanco);
+    border-color: var(--cs-rojo);
+    background-color: rgba(217, 30, 24, 0.15);
+}
+
+/* Barra de Navegación y Stepper */
+.pos-toolbar {
+    padding: 1.2rem 2rem 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.pos-nav-tabs, .pos-stepper {
+    display: flex;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pos-pill {
+    padding: 0.45rem 1.6rem;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: 1px solid var(--cs-gris-borde);
+    color: var(--cs-blanco-suave);
+    background-color: var(--cs-gris-carbon);
+    display: inline-block;
+}
+
+.pos-pill.active {
+    background-color: var(--cs-rojo);
+    border-color: var(--cs-rojo);
+    color: var(--cs-blanco);
+    box-shadow: 0 4px 12px rgba(217, 30, 24, 0.35);
+}
+
+.pos-pill:not(.active):hover {
+    color: var(--cs-blanco);
+    border-color: var(--cs-blanco-suave);
+}
+
+.pos-stepper .step-pill {
+    background-color: #1a1a1e;
+    border: 1px solid #2e2e34;
+    color: #70707a;
+    cursor: default;
+}
+
+.pos-stepper .step-pill.active {
+    background-color: var(--cs-rojo);
+    border-color: var(--cs-rojo);
+    color: var(--cs-blanco);
+    box-shadow: 0 4px 12px rgba(217, 30, 24, 0.35);
+}
+
+/* Contenido Principal */
+.pos-content {
+    padding: 1rem 2rem 2rem;
+    flex: 1;
+}
+
+.section-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+    color: var(--cs-blanco);
+}
+
+/* Barra de Búsqueda de Funciones */
+.pos-search-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 320px;
+    max-width: 100%;
+}
+
+.pos-search-icon {
+    position: absolute;
+    left: 14px;
+    color: var(--cs-blanco-suave);
+    font-size: 0.95rem;
+    pointer-events: none;
+    transition: color 0.2s ease;
+}
+
+.pos-search-input {
+    width: 100%;
+    background-color: var(--cs-gris-carbon);
+    border: 1px solid var(--cs-gris-borde);
+    color: var(--cs-blanco);
+    border-radius: 30px;
+    padding: 0.55rem 2.4rem 0.55rem 2.6rem;
+    font-size: 0.88rem;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.25s ease;
+}
+
+.pos-search-input:focus {
+    background-color: #1a1a1e;
+    border-color: var(--cs-dorado);
+    box-shadow: 0 0 0 3px var(--cs-dorado-glow);
+    outline: none;
+}
+
+.pos-search-wrapper:focus-within .pos-search-icon {
+    color: var(--cs-dorado);
+}
+
+.pos-search-clear {
+    position: absolute;
+    right: 12px;
+    background: none;
+    border: none;
+    color: var(--cs-blanco-suave);
+    cursor: pointer;
+    padding: 0;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease;
+}
+
+.pos-search-clear:hover {
+    color: var(--cs-blanco);
+}
+
+/* Grid de Salas */
+.salas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 360px));
+    gap: 1.8rem;
+    margin-bottom: 2rem;
+    justify-content: start;
+}
+
+.sala-card {
+    background-color: var(--cs-gris-carbon);
+    border: 1px solid var(--cs-gris-borde);
+    border-radius: 16px;
+    padding: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    width: 100%;
+    max-width: 380px;
+}
+
+.sala-card:hover {
+    border-color: #4f4f5a;
+    box-shadow: 0 8px 26px rgba(0, 0, 0, 0.6);
+}
+
+.sala-header {
+    font-size: 0.88rem;
+    color: var(--cs-blanco-suave);
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.sala-afiche {
+    background-color: #121215;
+    border: 1px solid #2e2e36;
+    border-radius: 12px;
+    height: 195px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #666675;
+    margin-bottom: 1.2rem;
+    position: relative;
+    overflow: hidden;
+    padding: 4px;
+}
+
+.afiche-poster-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+    transition: transform 0.35s ease;
+}
+
+.sala-card:hover .afiche-poster-img {
+    transform: scale(1.03);
+}
+
+.sala-afiche i {
+    font-size: 2.4rem;
+    margin-bottom: 6px;
+    color: #4b4b56;
+}
+
+.sala-afiche span {
+    font-size: 0.82rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.movie-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--cs-blanco);
+    margin-bottom: 0.6rem;
+    line-height: 1.3;
+    min-height: 2.6rem;
+}
+
+.format-badge {
+    display: inline-block;
+    background-color: var(--cs-dorado);
+    color: #121214;
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 0.2rem 0.65rem;
+    border-radius: 6px;
+    margin-bottom: 1.2rem;
+    width: fit-content;
+    letter-spacing: 0.5px;
+}
+
+.horarios-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 1.2rem;
+}
+
+.btn-horario {
+    background-color: #18181c;
+    border: 1px solid var(--cs-gris-borde);
+    color: var(--cs-blanco);
+    padding: 0.55rem 1rem;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    flex: 1 0 calc(33.333% - 10px);
+    text-align: center;
+}
+
+.btn-horario:hover {
+    border-color: var(--cs-dorado);
+    color: var(--cs-dorado);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--cs-dorado-glow);
+}
+
+.btn-horario.selected,
+.btn-horario:active {
+    background-color: var(--cs-rojo);
+    border-color: var(--cs-rojo);
+    color: var(--cs-blanco);
+    box-shadow: 0 4px 12px rgba(217, 30, 24, 0.4);
+}
+
+.sala-footer-hint {
+    font-size: 0.8rem;
+    color: #727280;
+    margin-top: auto;
+    padding-top: 0.5rem;
+}
+
+/* Pie General */
+.pos-footer-notes {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 0.82rem;
+    color: var(--cs-blanco-suave);
+    margin-top: 1rem;
+}
+
+/* ==============================================
+   PASO 2: MAPA DE BUTACAS Y RESUMEN
+   ============================================== */
+.subtitulo-funcion {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--cs-blanco);
+    letter-spacing: 0.5px;
+}
+
+.butacas-layout {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 2rem;
+    align-items: start;
+}
+
+@media (max-width: 1024px) {
+    .butacas-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Panel Izquierdo: Sala */
+.sala-interactive-panel {
+    background-color: var(--cs-gris-carbon);
+    border: 1px solid var(--cs-gris-borde);
+    border-radius: 16px;
+    padding: 2rem 1.8rem;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pantalla-wrapper {
+    width: 80%;
+    margin-bottom: 2.2rem;
+    text-align: center;
+}
+
+.pantalla-bar {
+    background: linear-gradient(180deg, #3d3d46 0%, #25252b 100%);
+    border: 1px solid #4a4a55;
+    border-radius: 6px;
+    color: #8c8c9a;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    padding: 0.4rem 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Matriz de Butacas */
+.matriz-butacas {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.fila-asientos {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: center;
+}
+
+.fila-indicador {
+    width: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--cs-blanco-suave);
+    text-align: right;
+}
+
+.asientos-row {
+    display: flex;
+    gap: 8px;
+}
+
+.asiento-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.15s ease, filter 0.15s ease, background-color 0.2s ease;
+    padding: 0;
+}
+
+.asiento-btn:hover:not(:disabled) {
+    transform: scale(1.12);
+    z-index: 2;
+}
+
+/* Estados de Butaca */
+.asiento-btn.libre {
+    background-color: #10b981; /* Verde libre */
+    color: transparent;
+}
+
+.asiento-btn.libre .icon-check {
+    display: none;
+}
+
+.asiento-btn.libre.seleccionada {
+    background-color: var(--cs-dorado); /* Amarillo seleccionada */
+    color: #151517;
+    box-shadow: 0 0 12px var(--cs-dorado-glow);
+    transform: scale(1.08);
+}
+
+.asiento-btn.libre.seleccionada .icon-check {
+    display: inline-block;
+}
+
+.asiento-btn.ocupado {
+    background-color: var(--cs-rojo); /* Rojo ocupada */
+    color: #ffffff;
+    cursor: not-allowed;
+    opacity: 0.9;
+}
+
+/* Panel Derecho: Resumen */
+.resumen-card {
+    background-color: var(--cs-gris-carbon);
+    border: 1px solid var(--cs-gris-borde);
+    border-radius: 16px;
+    padding: 1.8rem;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
+}
+
+.resumen-titulo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    color: var(--cs-blanco);
+    margin-bottom: 1.4rem;
+    border-bottom: 1px solid #33333d;
+    padding-bottom: 0.6rem;
+}
+
+.resumen-datos {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    margin-bottom: 1.6rem;
+}
+
+.resumen-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.resumen-label {
+    color: var(--cs-blanco-suave);
+}
+
+.resumen-valor {
+    color: var(--cs-blanco);
+    font-weight: 600;
+    text-align: right;
+    max-width: 60%;
+    word-break: break-word;
+}
+
+/* Leyenda */
+.leyenda-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.8rem 0;
+    border-top: 1px solid #33333d;
+    border-bottom: 1px solid #33333d;
+    margin-bottom: 1rem;
+}
+
+.leyenda-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    color: var(--cs-blanco-suave);
+}
+
+.leyenda-cuadro {
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.leyenda-cuadro.libre {
+    background-color: #10b981;
+}
+
+.leyenda-cuadro.seleccionada {
+    background-color: var(--cs-dorado);
+    color: #151517;
+}
+
+.leyenda-cuadro.ocupada {
+    background-color: var(--cs-rojo);
+    color: #fff;
+}
+
+.leyenda-nota {
+    font-size: 0.75rem;
+    color: #727280;
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
+}
+
+/* Botones de Acción */
+.resumen-acciones {
+    display: flex;
+    gap: 12px;
+}
+
+.btn-resumen-cancelar {
+    flex: 1;
+    background-color: #1a1a1e;
+    border: 1px solid var(--cs-gris-borde);
+    color: var(--cs-blanco);
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.92rem;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.btn-resumen-cancelar:hover {
+    background-color: #26262d;
+    color: var(--cs-blanco);
+    border-color: #555560;
+}
+
+.btn-resumen-continuar {
+    flex: 1.3;
+    background-color: var(--cs-rojo);
+    border: none;
+    color: var(--cs-blanco);
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.92rem;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.15s ease, opacity 0.2s ease;
+}
+
+.btn-resumen-continuar:hover:not(:disabled) {
+    background-color: var(--cs-rojo-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(217, 30, 24, 0.4);
+}
+
+.btn-resumen-continuar:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ==============================================
+   PASO 3: PANTALLA DE COBRO Y DETALLE
+   ============================================== */
+.cobro-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.2rem;
+    align-items: start;
+    max-width: 1050px;
+    margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+    .cobro-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+.detalle-venta-card, .cobro-panel-card {
+    background-color: var(--cs-gris-carbon);
+    border: 1px solid var(--cs-gris-borde);
+    border-radius: 16px;
+    padding: 2.2rem;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
+}
+
+.cobro-card-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.9rem;
+    letter-spacing: 2px;
+    color: var(--cs-blanco);
+    margin-bottom: 1.6rem;
+    border-bottom: 1px solid #33333d;
+    padding-bottom: 0.6rem;
+}
+
+.detalle-filas {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+
+.detalle-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.95rem;
+}
+
+.detalle-label {
+    color: var(--cs-blanco-suave);
+}
+
+.detalle-valor {
+    color: var(--cs-blanco);
+    text-align: right;
+    max-width: 65%;
+    word-break: break-word;
+}
+
+/* Selector de Tarifa */
+.tarifa-seccion {
+    margin-top: 0.6rem;
+}
+
+.tarifa-label {
+    display: block;
+    color: var(--cs-blanco-suave);
+    font-size: 0.88rem;
+    margin-bottom: 0.5rem;
+}
+
+.tarifa-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-tarifa {
+    flex: 1;
+    background-color: #1a1a1e;
+    border: 1px solid var(--cs-gris-borde);
+    color: var(--cs-blanco);
+    padding: 0.65rem 0.8rem;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-tarifa:hover {
+    border-color: var(--cs-dorado);
+    color: var(--cs-dorado);
+}
+
+.btn-tarifa.active {
+    background-color: var(--cs-rojo);
+    border-color: var(--cs-rojo);
+    color: var(--cs-blanco);
+    box-shadow: 0 4px 12px rgba(217, 30, 24, 0.4);
+}
+
+.detalle-divider {
+    border-color: #33333d;
+    margin: 1.2rem 0;
+}
+
+.detalle-subtotal-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.05rem;
+    color: var(--cs-blanco-suave);
+}
+
+.subtotal-monto {
+    color: var(--cs-blanco);
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+
+/* Panel de Cobro Derecho */
+.total-bloque {
+    margin-bottom: 1.4rem;
+}
+
+.total-label-dorado {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--cs-dorado);
+    letter-spacing: 1.5px;
+    display: block;
+    margin-bottom: 0.2rem;
+}
+
+.total-monto {
+    font-size: 3.4rem;
+    font-weight: 800;
+    color: var(--cs-blanco);
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+/* Métodos de Pago */
+.metodos-pago-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.btn-metodo {
+    flex: 1;
+    background-color: #1a1a1e;
+    border: 1px solid var(--cs-gris-borde);
+    color: var(--cs-blanco);
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-metodo:hover {
+    border-color: var(--cs-blanco-suave);
+}
+
+.btn-metodo.active {
+    background-color: var(--cs-rojo);
+    border-color: var(--cs-rojo);
+    color: var(--cs-blanco);
+    box-shadow: 0 4px 12px rgba(217, 30, 24, 0.4);
+}
+
+/* Input Moneda Efectivo */
+.input-moneda-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-moneda-simbolo {
+    position: absolute;
+    left: 14px;
+    color: var(--cs-blanco-suave);
+    font-size: 1.1rem;
+    font-weight: 600;
+    pointer-events: none;
+}
+
+.input-efectivo {
+    background-color: #1a1a1e !important;
+    border: 1px solid var(--cs-gris-borde) !important;
+    color: var(--cs-blanco) !important;
+    font-size: 1.25rem;
+    font-weight: 700;
+    padding: 0.65rem 1rem 0.65rem 2.2rem;
+    border-radius: 10px;
+    height: 52px;
+}
+
+.input-efectivo:focus {
+    border-color: var(--cs-dorado) !important;
+    box-shadow: 0 0 0 3px var(--cs-dorado-glow) !important;
+}
+
+/* Cambio Display */
+.cambio-bloque {
+    margin-top: 1rem;
+    margin-bottom: 0.8rem;
+}
+
+.cambio-label {
+    font-size: 0.82rem;
+    color: var(--cs-blanco-suave);
+    display: block;
+    margin-bottom: 0.2rem;
+}
+
+.cambio-monto {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #727280;
+    line-height: 1.1;
+    transition: color 0.2s ease;
+}
+
+.cambio-monto.texto-verde {
+    color: #10b981;
+}
+
+.alerta-faltante {
+    background-color: rgba(255, 90, 95, 0.12);
+    border: 1px solid #FF5A5F;
+    color: #FF5A5F;
+    border-radius: 8px;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.85rem;
+    margin-bottom: 1.2rem;
+}
+
+/* Botón Gigante de Cobro */
+.btn-cobrar-stark {
+    width: 100%;
+    background-color: var(--cs-rojo);
+    border: none;
+    border-radius: 12px;
+    color: var(--cs-blanco);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 1.1rem;
+    cursor: pointer;
+    margin-top: 1.2rem;
+    transition: all 0.2s ease;
+}
+
+.btn-cobrar-stark:hover:not(:disabled) {
+    background-color: var(--cs-rojo-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(217, 30, 24, 0.45);
+}
+
+.btn-cobrar-stark:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ==============================================
+   TICKET TÉRMICO (80 MM)
+   ============================================== */
+.ticket-wrapper {
+    max-width: 440px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ticket-termico {
+    background-color: #ffffff;
+    color: #000000;
+    width: 330px; /* ~80 mm a 96-120 DPI */
+    padding: 24px 20px;
+    font-family: 'Space Mono', monospace, 'Courier New', Courier;
+    font-size: 12px;
+    line-height: 1.4;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.ticket-header {
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.ticket-logo {
+    height: 38px;
+    width: auto;
+    filter: grayscale(100%) contrast(150%);
+    margin-bottom: 6px;
+}
+
+.ticket-titulo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    margin: 0;
+    color: #000;
+    letter-spacing: 1px;
+}
+
+.ticket-sub, .ticket-fecha {
+    font-size: 10px;
+    margin: 0;
+    color: #444;
+}
+
+.ticket-linea {
+    text-align: center;
+    font-size: 11px;
+    overflow: hidden;
+    margin: 4px 0;
+    color: #333;
+}
+
+.ticket-seccion, .ticket-totales {
+    margin: 6px 0;
+}
+
+.ticket-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3px;
+    font-size: 11px;
+}
+
+.ticket-total-row {
+    font-size: 14px;
+    font-weight: 700;
+    margin: 6px 0;
+}
+
+.ticket-pelicula-box {
+    margin: 8px 0;
+}
+
+.ticket-pelicula {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.ticket-detalles-funcion {
+    font-size: 11px;
+    color: #333;
+    margin-top: 2px;
+}
+
+.ticket-butacas-text {
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+
+.ticket-validacion {
+    text-align: center;
+    margin-top: 8px;
+}
+
+.ticket-codigo-box {
+    background-color: #f1f1f1;
+    border: 1px dashed #333;
+    padding: 6px;
+    border-radius: 4px;
+    margin: 6px 0;
+}
+
+.ticket-codigo {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.ticket-nota {
+    font-size: 10px;
+    margin: 6px 0 0;
+    color: #444;
+}
+
+.ticket-acciones {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+    justify-content: center;
+}
+
+/* Reglas de Impresión Real */
+@media print {
+    body {
+        background-color: #ffffff !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .pos-header, .pos-toolbar, .ticket-acciones, .d-print-none {
+        display: none !important;
+    }
+
+    .ticket-wrapper {
+        margin: 0 !important;
+        width: 100% !important;
+    }
+
+    .ticket-termico {
+        box-shadow: none !important;
+        padding: 0 !important;
+        width: 80mm !important;
+        font-size: 11px !important;
+    }
+}
+
+
